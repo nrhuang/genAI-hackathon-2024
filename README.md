@@ -10,7 +10,7 @@ pip install streamlit
 .venv\Scripts\Activate.ps1
 
 # macOS and Linux
-source .venv/bin/activate
+source .venv/Scripts/activate
 
 3.
 streamlit run app.py
