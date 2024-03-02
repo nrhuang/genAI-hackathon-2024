@@ -34,3 +34,11 @@ def invoke(prompt, temperature, max_tokens):
 if st.button("test", type="primary"):
     result = invoke("hello", 0.5, 2048)
     st.write('result: %s' % result)
+    
+form = st.form(key='my_form')
+prompt = form.text_input(label='Enter some text')
+submit_button = form.form_submit_button(label='Submit')
+
+if submit_button:
+    result = invoke(prompt, 0.5, 2048)
+    st.write('result: %s' % result)
