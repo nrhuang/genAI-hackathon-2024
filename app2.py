@@ -57,7 +57,8 @@ class BrainChipApp:
         Show the resources for the given topic.
         """
         st.subheader("Resources")
-        invoke_resources = f"Give a list of resources (books, videos, articles, links, etc.) for {self.topic} that are {self.level} and can be completed in {self.time} hours. For each resource, include the links (especially for websites, YouTube) if possible."
+        # invoke_resources = f"Give a list of resources (books, videos, articles, links, etc.) for {self.topic} that are {self.level} and can be completed in {self.time} hours. For each resource, include the links (especially for websites, YouTube) if possible."
+        invoke_resources = f"Provide a list of links to resources (such as books, videos, articles, etc.) for learning about {self.topic} at {self.level} level."
         resources = self.BEDROCK.invoke(invoke_resources, self.TONE, self.MAX_TOKENS)
         st.write(resources)
 
