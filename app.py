@@ -36,9 +36,12 @@ if st.button("test", type="primary"):
     st.write('result: %s' % result)
     
 form = st.form(key='my_form')
-prompt = form.text_input(label='Enter some text')
+topic = form.text_input(label='Topic')
+level = form.selectbox('Select a Level', ['Beginner', 'Intermediate', 'Advanced'])
+time = form.text_input(label='Time (hours)')
 submit_button = form.form_submit_button(label='Submit')
+invoke_string = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information."
 
 if submit_button:
-    result = invoke(prompt, 0.5, 2048)
+    result = invoke(invoke_string, 0.5, 2048)
     st.write('result: %s' % result)
