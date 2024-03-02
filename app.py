@@ -51,6 +51,7 @@ def generate_image_with_text(text, output_path='output_image.jpg'):
 
     # for (i in split_slides):
     #     generate_image_with_text(i)
+    #dhhddddsb
 
 
     
