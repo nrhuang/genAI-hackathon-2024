@@ -18,6 +18,43 @@ time = form.text_input(label='Time (hours)')
 submit_button = form.form_submit_button(label='Submit')
 invoke_string = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Give me short notes about it."
 
+def generate_image_with_text(text, output_path='output_image.jpg'):
+    # Create a blank white image
+    image_width = 800
+    image_height = 600
+    background_color = random.choice[(255, 255, 255), (200,240,190) ]  # NEED TO CHOOSE COLOURS
+    image = Image.new('RGB', (image_width, image_height), background_color)
+
+    # Initialize drawing context
+    draw = ImageDraw.Draw(image)
+
+    # Set font and size (adjust as needed)
+    font_path = "/Users/khushinarang/Downloads/playfair-display"  # Replace with the path to your font file
+    font_size = 20
+    font = ImageFont.truetype(font_path, font_size)
+
+    # Set text color
+    text_color = (0, 0, 0)  # Black
+
+    # Set text position (adjust as needed)
+    text_position = (50, 50)
+
+    # Write text on the image
+    draw.text(text_position, text, font=font, fill=text_color)
+
+    # Save the image
+    image.save(output_path)
+    
+    #     AI_generated_text = ""
+# we split it and then produce 
+# split_slides = []
+
+    # for (i in split_slides):
+    #     generate_image_with_text(i)
+
+
+    
+
 if submit_button:
     col1, col2 = st.columns([2, 3.5])
 
