@@ -10,3 +10,7 @@ BrainChip is an application designed to make learning easy. Find resources, note
 5. Get notes and resources catered to your needs
 
 Built in Python using Streamlit, Amazon Bedrock, and Claude AI.
+
+## Next Steps
+1. Improve formatting with CSS
+2. Implement parallelism to reduce loading times
