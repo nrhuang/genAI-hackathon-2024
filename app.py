@@ -19,7 +19,7 @@ level = form.selectbox('Select a Level', ['Beginner', 'Intermediate', 'Advanced'
 time = form.text_input(label='Time (hours)')
 submit_button = form.form_submit_button(label='Submit')
 notes_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Give me short notes about it."
-slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow with bullet points, but place an '@' character at the beginning of each slide. Also do not label each slide, limit each slide to 250 characters, and create at least 3 slides."
+slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow and present the information in bullet point form, but place an '@' character at the beginning of each slide. Also do not label each slide and create at least 3 slides."
 
 if submit_button:
     st.subheader("Slides")
@@ -29,7 +29,7 @@ if submit_button:
     for i in range(len(slides_text)):
         slides_dict.append(dict(title="Slide " + str(i + 1),
                                 text=slides_text[i],
-                                img="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=1380&t=st=1688825493~exp=1688826093~hmac=cb486d2646b48acbd5a49a32b02bda8330ad7f8a0d53880ce2da471a45ad08a4"))
+                                img="https://img.freepik.com/free-vector/background-realistic-abstract-technology-particle_23-2148431735.jpg"))
     carousel(items=slides_dict, height = 800)
 
     col1, col2 = st.columns(2)
