@@ -1,0 +1,10 @@
+streamlit
+dotenv
+os
+boto3
+json
+bedrock
+streamlit_carousel
+base64
+io
+dotenv
