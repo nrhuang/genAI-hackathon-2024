@@ -8,6 +8,8 @@ import bedrock
 
 from streamlit_carousel import carousel
 
+st.set_page_config(layout="wide")
+
 st.header("BrainChip")
 st.subheader("Learn Something new today!")
 
@@ -17,7 +19,7 @@ level = form.selectbox('Select a Level', ['Beginner', 'Intermediate', 'Advanced'
 time = form.text_input(label='Time (hours)')
 submit_button = form.form_submit_button(label='Submit')
 notes_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Give me short notes about it."
-slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow for me, but place an '@' character at the beginning of each slide. Also do not label each slide and limit each slide to 250 characters."
+slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow with bullet points, but place an '@' character at the beginning of each slide. Also do not label each slide, limit each slide to 250 characters, and create at least 3 slides."
 
 if submit_button:
     col1, col2 = st.columns([2, 3.5])
