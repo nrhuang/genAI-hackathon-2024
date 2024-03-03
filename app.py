@@ -30,7 +30,11 @@ if submit_button:
         notes = bedrock.invoke(notes_prompt, 0.5, 2048)
         st.write(notes)
         
-        st.subheader("Suggestions")
+        st.subheader("Resources")
+        # invoke_resources = f"Give a list of resources (books, videos, articles, links, etc.) for {self.topic} that are {self.level} and can be completed in {self.time} hours. For each resource, include the links (especially for websites, YouTube) if possible."
+        invoke_resources = f"Provide a list of links to resources (such as books, videos, articles, etc.) for learning about {topic} at {level} level. Do not include dummy links or resources."
+        resources = bedrock.invoke(invoke_resources, 0.5, 2048)
+        st.write(resources)
 
 
     with col2:
@@ -43,7 +47,3 @@ if submit_button:
                                     text=slides_text[i],
                                     img="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=1380&t=st=1688825493~exp=1688826093~hmac=cb486d2646b48acbd5a49a32b02bda8330ad7f8a0d53880ce2da471a45ad08a4"))
         carousel(items=slides_dict, width=1)
-        st.subheader("Chatbot")
-
-    
-
