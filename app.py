@@ -20,7 +20,7 @@ level = form.selectbox('Select a Level', ['Beginner', 'Intermediate', 'Advanced'
 time = form.text_input(label='Time (hours)')
 submit_button = form.form_submit_button(label='Submit')
 notes_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Give me short notes about it."
-slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow and present the information in bullet point form, but place an '@' character at the beginning of each slide. Also do not label each slide."
+slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow and present the information in bullet point form, but place an '@' character at the beginning of each slide. Provide a topic for each slide before its infortmation in CAPS LOCK. Also do not label each slide."
 
 if submit_button:
     st.subheader("Slides")
