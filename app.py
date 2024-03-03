@@ -32,7 +32,7 @@ if submit_button:
                                 img="https://img.freepik.com/free-vector/background-realistic-abstract-technology-particle_23-2148431735.jpg"))
     carousel(items=slides_dict, height = 800)
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns([1.425,0.15,1.425])
 
 
     with col1:
@@ -40,10 +40,25 @@ if submit_button:
         notes = bedrock.invoke(notes_prompt, 0.5, 2048)
         st.write(notes)
         
+    with col2:
+        st.markdown(
+    """
+    <style>
+    .vertical-line {
+        border-left: 2px solid #808080; /* Set color and thickness of the line */
+        height: 700px; /* Adjust height of the line */
+        margin: auto; /* Center the line horizontally */
+    }
+    </style>
+    <div class="vertical-line"></div>
+    """,
+    unsafe_allow_html=True
+)
+        
         
 
 
-    with col2:
+    with col3:
         st.subheader("Resources")
         # invoke_resources = f"Give a list of resources (books, videos, articles, links, etc.) for {self.topic} that are {self.level} and can be completed in {self.time} hours. For each resource, include the links (especially for websites, YouTube) if possible."
         invoke_resources = f"Provide a list of links to resources (such as books, videos, articles, etc.) for learning about {topic} at {level} level. Do not include dummy links or resources."
