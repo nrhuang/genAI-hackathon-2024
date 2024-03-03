@@ -10,7 +10,8 @@ from streamlit_carousel import carousel
 
 st.set_page_config(layout="wide")
 
-st.header("BrainChip")
+# st.header("BrainChip")
+st.image("BrainChip logo.png", width = 200)
 st.subheader("Learn Something new today!")
 
 form = st.form(key='my_form')
