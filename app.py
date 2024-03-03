@@ -22,7 +22,17 @@ notes_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I
 slideshow_prompt = "I want to learn about" + topic + "and I have" + time + "hours. I am looking for " + level + "information. Create a slideshow with bullet points, but place an '@' character at the beginning of each slide. Also do not label each slide, limit each slide to 250 characters, and create at least 3 slides."
 
 if submit_button:
-    col1, col2 = st.columns([2, 3.5])
+    st.subheader("Slides")
+    slideshow_output = bedrock.invoke(slideshow_prompt, 0.5, 2048)
+    slides_text = slideshow_output.split("@")[2:]
+    slides_dict = []
+    for i in range(len(slides_text)):
+        slides_dict.append(dict(title="Slide " + str(i + 1),
+                                text=slides_text[i],
+                                img="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=1380&t=st=1688825493~exp=1688826093~hmac=cb486d2646b48acbd5a49a32b02bda8330ad7f8a0d53880ce2da471a45ad08a4"))
+    carousel(items=slides_dict, height = 800)
+
+    col1, col2 = st.columns(2)
 
 
     with col1:
@@ -30,20 +40,13 @@ if submit_button:
         notes = bedrock.invoke(notes_prompt, 0.5, 2048)
         st.write(notes)
         
+        
+
+
+    with col2:
         st.subheader("Resources")
         # invoke_resources = f"Give a list of resources (books, videos, articles, links, etc.) for {self.topic} that are {self.level} and can be completed in {self.time} hours. For each resource, include the links (especially for websites, YouTube) if possible."
         invoke_resources = f"Provide a list of links to resources (such as books, videos, articles, etc.) for learning about {topic} at {level} level. Do not include dummy links or resources."
         resources = bedrock.invoke(invoke_resources, 0.5, 2048)
         st.write(resources)
-
-
-    with col2:
-        st.subheader("Slides")
-        slideshow_output = bedrock.invoke(slideshow_prompt, 0.5, 2048)
-        slides_text = slideshow_output.split("@")[2:]
-        slides_dict = []
-        for i in range(len(slides_text)):
-            slides_dict.append(dict(title="Slide " + str(i + 1),
-                                    text=slides_text[i],
-                                    img="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=1380&t=st=1688825493~exp=1688826093~hmac=cb486d2646b48acbd5a49a32b02bda8330ad7f8a0d53880ce2da471a45ad08a4"))
-        carousel(items=slides_dict, width=1)
+       
